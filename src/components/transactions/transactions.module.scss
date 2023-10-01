@@ -1,0 +1,29 @@
+.container {
+  flex: 1;
+  .walletAddress {
+    flex: 4;
+  }
+  .crypto {
+    flex: 1;
+  }
+  .amount {
+    flex: 1;
+  }
+  .items {
+    display: flex;
+    padding: 20px 5px 0 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .transactionCard {
+    display: flex;
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 10px 5px;
+    cursor: pointer;
+  }
+}

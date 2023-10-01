@@ -1,5 +1,6 @@
 .container {
   height: 100vh;
+
   .imageContainer {
     position: absolute;
     left: 0;
@@ -16,6 +17,7 @@
   }
 
   .loginPanel {
+    background-color: var(--lightColor);
     position: absolute;
     right: 0;
     top: 0;
