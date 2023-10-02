@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "./transactions.module.scss";
+import { useRouter } from "next/navigation";
+import styles from "./transactionsList.module.scss";
 import axios from "@/utils/axios";
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
+  const router = useRouter();
 
   const getTransactions = async () => {
     await axios
@@ -29,10 +31,16 @@ const Transactions = () => {
         <p className={styles.amount}>amount (usd)</p>
       </div>
       {transactions?.map((item) => (
-        <div className={styles.transactionCard} key={item.key}>
-          <p className={styles.walletAddress}>{item.address}</p>
+        <div
+          onClick={() => router.push(`/transactions/${item.tx_hash}`)}
+          className={styles.transactionCard}
+          key={item.key}
+        >
+          <p className={styles.walletAddress}>{item.address.slice(0, 30)}...</p>
           <p className={styles.crypto}>{item.address_type}</p>
-          <p className={styles.amount}>{item.amount_usd.toLocaleString()}</p>
+          <p className={styles.amount}>
+            {item.amount_usd.toLocaleString()} <span>(USD)</span>
+          </p>
         </div>
       ))}
     </div>
